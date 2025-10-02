@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axiosInstance from '../common/AxiosInstance';
 import NavBar from '../common/NavBar';
 import { Container, Button } from '@mui/material';

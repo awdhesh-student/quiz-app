@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../common/NavBar';
 import axiosInstance from '../common/AxiosInstance';
@@ -73,7 +73,7 @@ const QuizComponent = () => {
                         className={`btn ${clickedOption === index ? "clicked-green" : ""}`}
                         onClick={() => setClickedOption(index)}
                      >
-                        {option}
+                        {option}ddd
                      </button>
                   ))}
                </div>

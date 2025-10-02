@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container, Nav } from 'react-bootstrap';
@@ -57,7 +57,7 @@ const Login = () => {
       <>
          <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-               <Navbar.Brand><h2>QuizApp</h2></Navbar.Brand>
+               <Navbar.Brand><h2 className='text-dark'>QuizApp</h2></Navbar.Brand>
                <Navbar.Toggle aria-controls="navbarScroll" />
                <Navbar.Collapse id="navbarScroll">
                   <Nav
@@ -68,7 +68,6 @@ const Login = () => {
                   </Nav>
                   <Nav>
                      <Link to={'/'}>Home</Link>
-                     {/* <Link to={'/about'}>About</Link> */}
                      <Link to={'/login'}>Login</Link>
                      <Link to={'/register'}>Register</Link>
                   </Nav>

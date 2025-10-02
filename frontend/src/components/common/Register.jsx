@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container, Nav } from 'react-bootstrap';
@@ -10,25 +10,17 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import axiosInstance from './AxiosInstance';
 import { message } from 'antd';
-// import Dropdown from 'react-bootstrap/Dropdown';
 
 
 
 
 const Register = () => {
    const navigate = useNavigate()
-   // const [selectedOption, setSelectedOption] = useState('Select User');
    const [data, setData] = useState({
       name: "",
       email: "",
       password: "",
-      // type: "",
    })
-
-   // const handleSelect = (eventKey) => {
-   //    setSelectedOption(eventKey);
-   //    setData({ ...data, type: eventKey });
-   // };
 
    const handleChange = (e) => {
       const { name, value } = e.target;
@@ -61,7 +53,7 @@ const Register = () => {
       <>
          <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-               <Navbar.Brand><h2>QuizApp</h2></Navbar.Brand>
+               <Navbar.Brand><h2 className='text-dark'>QuizApp</h2></Navbar.Brand>
                <Navbar.Toggle aria-controls="navbarScroll" />
                <Navbar.Collapse id="navbarScroll">
                   <Nav
@@ -72,7 +64,6 @@ const Register = () => {
                   </Nav>
                   <Nav>
                      <Link to={'/'}>Home</Link>
-                     {/* <Link to={'/about'}>About</Link> */}
                      <Link to={'/login'}>Login</Link>
                      <Link to={'/register'}>Register</Link>
                   </Nav>
@@ -96,7 +87,6 @@ const Register = () => {
                   }}
                >
                   <Avatar sx={{ bgcolor: 'secondary.main' }}>
-                     {/* <LockOutlinedIcon /> */}
                   </Avatar>
                   <Typography component="h1" variant="h5">
                      Register
@@ -135,16 +125,6 @@ const Register = () => {
                         id="password"
                         autoComplete="current-password"
                      />
-                     {/* <Dropdown className='my-3'>
-                        <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
-                           {selectedOption}
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                           <Dropdown.Item onClick={() => handleSelect("Student")}>Student</Dropdown.Item>
-                           <Dropdown.Item onClick={() => handleSelect("Teacher")}>Teacher</Dropdown.Item>
-                        </Dropdown.Menu>
-                     </Dropdown> */}
                      <Box mt={2}>
                         <Button
                            type="submit"

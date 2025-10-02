@@ -8,18 +8,25 @@ const attendingquizSchema = require("../schemas/attendingQuiz");
 //for register
 const registerController = async (req, res) => {
   try {
-    const existsUser = await userSchema.findOne({ email: req.body.email });
+    const { email, password } = req.body;
+    const existsUser = await userSchema.findOne({ email });
     if (existsUser) {
       return res
         .status(200)
         .send({ message: "User already exists", success: false });
     }
-    const password = req.body.password;
+
+    if (!password || password.length < 5) {
+      return res.status(200).send({
+        success: false,
+        message: "Password is required and must be at least 5 characters",
+      });
+    }
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    req.body.password = hashedPassword;
 
-    const newUser = new userSchema(req.body);
+    const newUser = new userSchema({...req.body, password: hashedPassword });
     await newUser.save();
 
     return res.status(201).send({ message: "Register Success", success: true });
@@ -144,12 +151,10 @@ const storeResultController = async (req, res) => {
   const { result, userId } = req.body;
   const { quizid } = req.params;
   try {
-    const quizData = await attendingquizSchema.findOne(
-      {
-        quizId: quizid,
-        userId
-      }
-    );
+    const quizData = await attendingquizSchema.findOne({
+      quizId: quizid,
+      userId,
+    });
 
     if (!quizData) {
       return res.status(404).json({

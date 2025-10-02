@@ -1,4 +1,3 @@
-import React from 'react'
 import AllQuizes from '../common/AllQuizes'
 
 const StudentHome = () => {

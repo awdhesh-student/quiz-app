@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { styled, TableRow, TableHead, TableContainer, Paper, Table, TableBody, TableCell, tableCellClasses } from '@mui/material'
 import axiosInstance from '../common/AxiosInstance';
 
@@ -75,7 +75,7 @@ const AllAttendees = () => {
                               {attendee.userId}
                            </StyledTableCell>
                            <StyledTableCell component="th" scope="row">
-                              {attendee.result[0].totalScore}
+                              {attendee.result[0]?.totalScore}
                            </StyledTableCell>
                            <StyledTableCell component="th" scope="row">
                               {makeRegularDateTime(attendee.createdAt)}
