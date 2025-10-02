@@ -73,7 +73,7 @@ const QuizComponent = () => {
                         className={`btn ${clickedOption === index ? "clicked-green" : ""}`}
                         onClick={() => setClickedOption(index)}
                      >
-                        {option}ddd
+                        {option}
                      </button>
                   ))}
                </div>
